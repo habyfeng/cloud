@@ -1,12 +1,14 @@
 package com.albert;
 
 import com.albert.api.DemoService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.bootstrap.builders.ReferenceBuilder;
 
 /**
  * RPC Client
  */
+@Slf4j
 public class AppDubboClient {
     public static void main(String[] args) {
 
@@ -21,7 +23,7 @@ public class AppDubboClient {
                 .get();
 
         String resp = demoService.sayHello("albert");
-        System.out.println("call directly resp: " + resp);
+        log.info("call directly resp: {}", resp);
     }
 
     public void callWithRegistry() {
@@ -33,7 +35,7 @@ public class AppDubboClient {
                 .get();
 
         String resp = demoService.sayHello("albert");
-        System.out.println("call with registry resp: " + resp);
+        log.info("call with registry resp: {}", resp);
 
     }
 }

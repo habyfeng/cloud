@@ -30,7 +30,6 @@ public class AppDubboServer {
         DubboBootstrap.getInstance()
                 .application("PAY")
                 .registry(new RegistryConfig("nacos://127.0.0.1:8848"))
-//                .protocol(new ProtocolConfig(CommonConstants.TRIPLE, 50051))
                 .service(ServiceBuilder.newBuilder().interfaceClass(DemoService.class).ref(new DemoServiceImpl()).build())
                 .start()
                 .await();

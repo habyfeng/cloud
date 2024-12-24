@@ -21,6 +21,10 @@ public class ServiceProvider {
     private ConfigService configService;
     private NamingService namingService;
 
+    /**
+     * 配置中心初始化
+     * @throws NacosException
+     */
     public void initConfigService() throws NacosException {
         configService = NacosFactory.createConfigService(serverAddr);
         log.info("ConfigServerStatus: {}", configService.getServerStatus());
@@ -51,6 +55,10 @@ public class ServiceProvider {
         });
     }
 
+    /**
+     * 注册中心初始化
+     * @throws NacosException
+     */
     public void initNamingService() throws NacosException {
         namingService = NacosFactory.createNamingService(serverAddr);
         log.info("NamingServerStatus: {}", namingService.getServerStatus());
